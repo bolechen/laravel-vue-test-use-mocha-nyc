@@ -1,6 +1,6 @@
 # Integrate Mocha and Nyc code-coverage with Laravel Mix 4
 
-在使用 Laravel + Vue 开发，做前端单元测试的时候，因为 Laravel 用的不是官方的 Vue 配置，而是用了 Laravel-Mix 这个中间件，
+在使用 Laravel + Vue 开发，做前端单元测试的时候，因为 Laravel 用的不是官方的 Vue 配置，而是用了 Laravel-Mix 这个中间件。  
 导致 Vue 官方的教程跑不通，网上的资料又比较少，这里记录下踩坑过程，希望可以帮你省下时间  
 
 Vue.js 官方的单元测试工具 `@vue/test-utils` 推荐用的组合是 Jest 或 Karma + Mocha
