@@ -1,7 +1,6 @@
 # Integrate Mocha and Nyc code-coverage with Laravel Mix 4
 
-在使用 Laravel + Vue 开发，做前端单元测试的时候，因为 Laravel 用的不是官方的 Vue 配置，而是用了 Laravel-Mix 这个中间件。
-导致 Vue 官方的教程跑不通，网上的资料又比较少，这里记录下踩坑过程，希望可以帮你省下时间。  
+在使用 Laravel + Vue 开发，做前端单元测试的时候，因为 Laravel 用的不是官方的 Vue 配置，而是用了 Laravel-Mix 这个中间件。导致 Vue 官方的教程跑不通，网上的资料又比较少，这里记录下踩坑过程，希望可以帮你省下时间。  
 
 Vue.js 官方的单元测试工具 `@vue/test-utils` 推荐用的组合是 Jest 或 Karma + Mocha。
 这里选用的方案是 Mocha，代码覆盖工具用的是 `mocha-webpack` + `nyc` 组合，相对于 Karma 要安装一个虚拟浏览器来说更轻量。  
@@ -26,7 +25,7 @@ scripts 部分增加两行 test 用
         "test": "cross-env NODE_ENV=test mocha-webpack --webpack-config=node_modules/laravel-mix/setup/webpack.config.js --require tests/Vue/setup.js tests/Vue/**/*.spec.js",
         "test-with-coverage": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text npm run test"
     },
- ```
+```
 
 末尾增加一节 nyc 的配置，设置默认要进行测试代码覆盖的文件
 ```
@@ -71,7 +70,10 @@ describe('ExampleComponent.vue', () => {
 $ yarn test
 ```
 
+![image](https://raw.githubusercontent.com/bolechen/laravel-vue-test-use-mocha-nyc/master/ScreenShot/1.png)
+
 ## 增加代码覆盖测试
+
 需要用到 `babel-plugin-istanbul` 这个插件，项目根目录下建一个 `.babelrc` 文件
 ```javascript
 {
@@ -86,7 +88,11 @@ $ yarn test
 ```bash
 $ yarn test-with-coverage
 ```
-出现下图就代表成功了，同时在根目录 `coverage/lcov-report/` 下会生成一份 html 版本的报告，可以更详细的看到结果
+![image](https://raw.githubusercontent.com/bolechen/laravel-vue-test-use-mocha-nyc/master/ScreenShot/2.png)
+
+出现上图就代表成功了，同时在根目录 `coverage/lcov-report/` 下会生成一份 html 版本的报告，可以更详细的看到结果
+
+![image](https://raw.githubusercontent.com/bolechen/laravel-vue-test-use-mocha-nyc/master/ScreenShot/3.png)
 
 ## All Done
 以上所有步骤，在以下环境测试通过
