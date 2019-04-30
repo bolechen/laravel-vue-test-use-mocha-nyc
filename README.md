@@ -89,7 +89,14 @@ $ yarn test-with-coverage
 出现下图就代表成功了，同时在根目录 `coverage/lcov-report/` 下会生成一份 html 版本的报告，可以更详细的看到结果
 
 ## All Done
+以上所有步骤，在以下环境测试通过
+- PHP 7.3.3
+- Laravel 5.8.14
+- Node v11.10.1
+- Yarn v1.13.0
 
-
-
+## 参考链接
+- 用 mocha 和 webpack 测试单文件组件(https://vue-test-utils.vuejs.org/zh/guides/#用-mocha-和-webpack-测试单文件组件)
+- Code Coverage with mocha-webpack(https://github.com/zinserjan/mocha-webpack/blob/master/docs/guides/code-coverage.md)
+- Hooking Into Laravel Mix(https://laracasts.com/series/testing-vue/episodes/6)
 
